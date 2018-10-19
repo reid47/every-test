@@ -1,6 +1,16 @@
 import { RenderContainer } from '../src/render-container';
 
 describe('RenderContainer', () => {
+  test('constructor', () => {
+    const container = new RenderContainer();
+    expect(container.domNode.getAttribute('data-test-container')).toEqual('true');
+    expect(container.mounted).toBeFalsy();
+    expect(container.options).toEqual({});
+
+    const containerWithOptions = new RenderContainer({ a: 'b' });
+    expect(containerWithOptions.options).toEqual({ a: 'b' });
+  });
+
   test('mount/unmount', () => {
     const container = new RenderContainer();
     container.domNode.innerHTML = `
@@ -10,14 +20,39 @@ describe('RenderContainer', () => {
       </div>
     `;
 
+    expect(container.mounted).toBeFalsy();
     expect(document.getElementById('test')).toBeFalsy();
+
     container.mount();
+    expect(container.mounted).toBeTruthy();
     expect(document.getElementById('test')).toBeInstanceOf(HTMLElement);
     expect(document.getElementById('test').parentNode.tagName).toBe('DIV');
     expect(document.getElementById('test').parentNode.parentNode).toBe(document.body);
+
     container.unmount();
+    expect(container.mounted).toBeFalsy();
     expect(document.getElementById('test')).toBeFalsy();
+
     container.unmount();
+    expect(container.mounted).toBeFalsy();
+    expect(document.getElementById('test')).toBeFalsy();
+  });
+
+  test('toString', () => {
+    const container = new RenderContainer();
+    container.domNode.innerHTML = '<div id="test"><button id="btn1"></button></div>';
+
+    expect(container.toString()).toBe(
+      `
+<div
+  id="test"
+>
+  <button
+    id="btn1"
+  />
+</div>
+    `.trim()
+    );
   });
 
   test('count', () => {

@@ -89,4 +89,87 @@ describe('ReactRenderContainer', () => {
     container.unmount();
     expect(node.querySelector('#func-component')).toBeFalsy();
   });
+
+  test('getPropsOf', () => {
+    const container = new ReactRenderContainer(
+      (
+        <div>
+          <TestComponent title="fixed" text="one" />
+        </div>
+      )
+    );
+
+    expect(container.getPropsOf(TestComponent)).toEqual({
+      title: 'fixed',
+      text: 'one'
+    });
+    expect(() => container.getPropsOf(FunctionalComponent)).toThrow();
+
+    const container2 = new ReactRenderContainer(
+      (
+        <div>
+          <FunctionalComponent title="a" text="b" />
+          <FunctionalComponent title="c" text="d" />
+        </div>
+      )
+    );
+
+    expect(() => container2.getPropsOf(FunctionalComponent)).toThrow();
+  });
+
+  test('allPropsOf', () => {
+    const container = new ReactRenderContainer(
+      (
+        <div>
+          <TestComponent title="fixed" text="one" />
+        </div>
+      )
+    );
+
+    expect(container.allPropsOf(TestComponent)).toEqual([
+      {
+        title: 'fixed',
+        text: 'one'
+      }
+    ]);
+    expect(container.allPropsOf(FunctionalComponent)).toEqual([]);
+
+    const container2 = new ReactRenderContainer(
+      (
+        <div>
+          <FunctionalComponent title="a" text="b" />
+          <FunctionalComponent title="c" text="d" />
+        </div>
+      )
+    );
+
+    expect(container2.allPropsOf(FunctionalComponent)).toEqual([
+      { title: 'a', text: 'b' },
+      { title: 'c', text: 'd' }
+    ]);
+  });
+
+  test('countRendersOf', () => {
+    const container = new ReactRenderContainer(
+      (
+        <div>
+          <TestComponent title="fixed" text="one" />
+        </div>
+      )
+    );
+
+    expect(container.countRendersOf(TestComponent)).toBe(1);
+    expect(container.countRendersOf(FunctionalComponent)).toBe(0);
+
+    const container2 = new ReactRenderContainer(
+      (
+        <div>
+          <FunctionalComponent title="a" text="b" />
+          <FunctionalComponent title="c" text="d" />
+        </div>
+      )
+    );
+
+    expect(container2.countRendersOf(FunctionalComponent)).toBe(2);
+  });
 });

@@ -1,14 +1,16 @@
 import { incorrectNodeCount } from './errors';
+import { formatDomNode } from './helpers';
 
 export class RenderContainer {
   constructor(options) {
     this.options = options || {};
     this.domNode = document.createElement('div');
+    this.domNode.setAttribute('data-test-container', 'true');
     this.mounted = false;
   }
 
-  debug() {
-    console.log(this.domNode.innerHTML);
+  toString(printOptions) {
+    return formatDomNode(this.domNode.firstChild, printOptions);
   }
 
   mount() {

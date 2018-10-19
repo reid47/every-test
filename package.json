@@ -38,5 +38,8 @@
     "coverageReporters": [
       "html"
     ]
+  },
+  "dependencies": {
+    "pretty-format": "^23.6.0"
   }
 }

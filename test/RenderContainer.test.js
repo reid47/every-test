@@ -1,4 +1,4 @@
-import { RenderContainer } from '../src/render-container';
+import { RenderContainer } from '../src/RenderContainer';
 
 describe('RenderContainer', () => {
   test('constructor', () => {

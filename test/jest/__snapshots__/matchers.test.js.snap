@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest matchers toHaveAttr 1`] = `
+"expect(<div id=\\"hello\\"></div>).toHaveAttr(...)
+
+Expected node to have attribute \\"id\\" with value \\"wow\\", but actual value was \\"hello\\"."
+`;
+
+exports[`Jest matchers toHaveAttr 2`] = `
+"expect(<div id=\\"hello\\"></div>).not.toHaveAttr(...)
+
+Expected node not to have attribute \\"id\\" with value \\"hello\\"."
+`;
+
+exports[`Jest matchers toHaveValue 1`] = `
+"expect(<input>).toHaveValue(...)
+
+Expected node to have value 47, but actual value was \\"47\\"."
+`;
+
+exports[`Jest matchers toHaveValue 2`] = `
+"expect(<input>).not.toHaveValue(...)
+
+Expected node not to have value \\"47\\"."
+`;

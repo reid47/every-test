@@ -1,6 +1,6 @@
 import { cloneElement, Children } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { RenderContainer } from '../render-container';
+import { RenderContainer } from '../RenderContainer';
 import { noRendersFound, multipleRendersFound } from '../errors';
 
 const findPropsOfType = (element, type, props) => {

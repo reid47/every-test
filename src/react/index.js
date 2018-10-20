@@ -1,4 +1,4 @@
-import { ReactRenderContainer } from './react-render-container';
+import { ReactRenderContainer } from './ReactRenderContainer';
 import { documentNotAvailable } from '../errors';
 
 const activeContainers = [];
@@ -11,11 +11,6 @@ const activeContainers = [];
 //       return cloneElementWithStubs(child, shallowTypes);
 //     })
 //   });
-// };
-
-// const findPropsOfType = (element, type, props) => {
-//   if (element.type === type) props.push(element.props);
-//   React.Children.forEach(element.props.children, child => findPropsOfType(child, type, props));
 // };
 
 export const render = (element, options = {}) => {

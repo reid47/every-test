@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactRenderContainer } from '../../src/react/react-render-container';
+import { ReactRenderContainer } from '../../src/react/ReactRenderContainer';
 
 class TestComponent extends React.Component {
   render() {

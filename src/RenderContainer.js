@@ -1,3 +1,4 @@
+import sizzle from 'sizzle';
 import { incorrectNodeCount } from './errors';
 import { formatDomNode } from './helpers';
 
@@ -35,11 +36,11 @@ export class RenderContainer {
   }
 
   find(selector) {
-    return this.domNode.querySelector(selector);
+    return this.all(selector)[0] || null;
   }
 
   all(selector) {
-    return Array.from(this.domNode.querySelectorAll(selector));
+    return sizzle(selector, this.domNode);
   }
 
   countByText(selector) {

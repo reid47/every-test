@@ -9,6 +9,10 @@
     "test": "jest",
     "build": "rm -rf dist && babel src -d dist"
   },
+  "dependencies": {
+    "pretty-format": "^23.6.0",
+    "sizzle": "^2.3.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
@@ -38,8 +42,5 @@
     "coverageReporters": [
       "html"
     ]
-  },
-  "dependencies": {
-    "pretty-format": "^23.6.0"
   }
 }

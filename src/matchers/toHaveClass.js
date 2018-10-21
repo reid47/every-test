@@ -1,3 +1,5 @@
+const formatClasses = classes => classes.map(JSON.stringify).join(', ');
+
 export default function toHaveClass(received, ...classes) {
   const isTruthy = !!received;
   const missingClasses = {};
@@ -11,9 +13,19 @@ export default function toHaveClass(received, ...classes) {
     }
   }
 
-  return {
-    pass: isTruthy && Object.keys(missingClasses).length === 0,
-    isTruthy,
-    missingClasses: Object.keys(missingClasses)
-  };
+  const missingClassNames = Object.keys(missingClasses);
+  const pass = isTruthy && missingClassNames.length === 0;
+
+  const classOrClasses = classes => (classes.length > 1 ? 'classes' : 'class');
+  const message = pass
+    ? `Expected element not to have ${classOrClasses(classes)} ${formatClasses(
+        classes
+      )}, but it did.`
+    : `Expected element to have ${classOrClasses(classes)} ${formatClasses(
+        classes
+      )}, but it was missing ${classOrClasses(missingClassNames)} ${formatClasses(
+        missingClassNames
+      )}.`;
+
+  return { pass, message };
 }

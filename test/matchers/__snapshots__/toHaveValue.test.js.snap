@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveValue failing 1`] = `"Expected element to have value \\"something else\\", but actual value was \\"hello\\"."`;
+
+exports[`toHaveValue passing 1`] = `"Expected element not to have value \\"hello\\"."`;

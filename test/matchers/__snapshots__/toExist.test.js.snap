@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toExist failing (falsy) 1`] = `"Expected element to exist, but it did not."`;
+
+exports[`toExist failing (not an HTML element) 1`] = `"Expected assertion to be made on a DOM element, but received 47."`;
+
+exports[`toExist failing (not in document) 1`] = `"DOM element is not contained by document. Was this element rendered to the document?"`;
+
+exports[`toExist passing 1`] = `"Expected element not to exist in the DOM, but it did."`;

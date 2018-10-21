@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toBeHidden failing 1`] = `"Expected element to be hidden, but it was not."`;
+
+exports[`toBeHidden passing (display: none) 1`] = `"Expected element not to be hidden, but it was."`;
+
+exports[`toBeHidden passing (hidden prop) 1`] = `"Expected element not to be hidden, but it was."`;
+
+exports[`toBeHidden passing (zero-height) 1`] = `"Expected element not to be hidden, but it was."`;
+
+exports[`toBeHidden passing (zero-width) 1`] = `"Expected element not to be hidden, but it was."`;

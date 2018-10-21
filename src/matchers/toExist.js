@@ -3,7 +3,7 @@ import { formatValue } from './common';
 export default function toExist(received) {
   const isTruthy = !!received;
   const isHtmlElement = received instanceof HTMLElement;
-  const isInDocument = document.contains(received);
+  const isInDocument = isHtmlElement && document.body.contains(received);
 
   const pass = isTruthy && isHtmlElement && isInDocument;
 

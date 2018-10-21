@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toContainText failing 1`] = `"Expected element to contain text \\"hello!\\", but actual text was \\"hello\\"."`;
+
+exports[`toContainText passing (regex) 1`] = `"Expected element not to contain text {}."`;
+
+exports[`toContainText passing (substring) 1`] = `"Expected element not to contain text \\"h\\"."`;

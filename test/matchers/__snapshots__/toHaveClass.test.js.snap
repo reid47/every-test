@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveClass failing (no classes, multiple expected) 1`] = `"Expected element to have classes \\"hello\\", \\"world\\", but it was missing classes \\"hello\\", \\"world\\"."`;
+
+exports[`toHaveClass failing (no classes, one expected) 1`] = `"Expected element to have class \\"hello\\", but it was missing class \\"hello\\"."`;
+
+exports[`toHaveClass failing (some classes, none of expected) 1`] = `"Expected element to have classes \\"hello\\", \\"world\\", but it was missing classes \\"hello\\", \\"world\\"."`;
+
+exports[`toHaveClass failing (some classes, some of expected) 1`] = `"Expected element to have classes \\"hello\\", \\"world\\", but it was missing class \\"world\\"."`;
+
+exports[`toHaveClass passing (multiple classes) 1`] = `"Expected element not to have classes \\"hello\\", \\"world\\", but it did."`;
+
+exports[`toHaveClass passing (single class) 1`] = `"Expected element not to have class \\"hello\\", but it did."`;

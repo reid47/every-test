@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveText failing 1`] = `"Expected element to have text \\"something else\\", but actual text was \\"hello\\"."`;
+
+exports[`toHaveText passing 1`] = `"Expected element not to have text \\"hello\\"."`;

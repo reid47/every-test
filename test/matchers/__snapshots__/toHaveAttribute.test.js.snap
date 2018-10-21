@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveAttribute failing 1`] = `"Expected element to have attribute \\"role\\" with value \\"button\\", but actual value was \\"banner\\"."`;
+
+exports[`toHaveAttribute failing 2`] = `"Expected element to have attribute \\"data-something-else\\"."`;
+
+exports[`toHaveAttribute passing 1`] = `"Expected element not to have attribute \\"role\\" with value \\"banner\\"."`;
+
+exports[`toHaveAttribute passing 2`] = `"Expected element not to have attribute \\"data-hello\\"."`;

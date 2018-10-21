@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toBeFocused failing 1`] = `"Expected element to be focused, but it was not."`;
+
+exports[`toBeFocused passing 1`] = `"Expected element not to be focused, but it was."`;

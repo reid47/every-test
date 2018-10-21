@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toBeChecked failing 1`] = `"Expected element to be checked."`;
+
+exports[`toBeChecked passing 1`] = `"Expected element not to be checked."`;

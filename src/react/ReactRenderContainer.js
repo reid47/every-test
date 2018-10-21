@@ -14,9 +14,26 @@ export class ReactRenderContainer extends RenderContainer {
     this.element = element;
   }
 
+  allPropsOf(componentType) {
+    const collectedProps = [];
+    findPropsOfType(this.element, componentType, collectedProps);
+    return collectedProps;
+  }
+
+  countRendersOf(componentType) {
+    return this.allPropsOf(componentType).length;
+  }
+
   mount() {
     super.mount();
     render(this.element, this.domNode);
+  }
+
+  propsOf(componentType) {
+    const allProps = this.allPropsOf(componentType);
+    if (!allProps.length) throw noRendersFound(componentType);
+    if (allProps.length > 1) throw multipleRendersFound(componentType);
+    return allProps[0];
   }
 
   setProps(newProps) {
@@ -28,22 +45,5 @@ export class ReactRenderContainer extends RenderContainer {
     if (!this.mounted) return;
     super.unmount();
     unmountComponentAtNode(this.domNode);
-  }
-
-  countRendersOf(componentType) {
-    return this.allPropsOf(componentType).length;
-  }
-
-  propsOf(componentType) {
-    const allProps = this.allPropsOf(componentType);
-    if (!allProps.length) throw noRendersFound(componentType);
-    if (allProps.length > 1) throw multipleRendersFound(componentType);
-    return allProps[0];
-  }
-
-  allPropsOf(componentType) {
-    const collectedProps = [];
-    findPropsOfType(this.element, componentType, collectedProps);
-    return collectedProps;
   }
 }

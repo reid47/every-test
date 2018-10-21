@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveTagName failing 1`] = `"Expected element to have tag name \\"button\\", but actual tag name was \\"div\\"."`;
+
+exports[`toHaveTagName passing 1`] = `"Expected element not to have tag name \\"div\\"."`;

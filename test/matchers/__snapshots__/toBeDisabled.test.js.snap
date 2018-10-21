@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toBeDisabled failing 1`] = `"Expected element to be disabled, but it was not."`;
+
+exports[`toBeDisabled passing 1`] = `"Expected element not to be disabled, but it was."`;

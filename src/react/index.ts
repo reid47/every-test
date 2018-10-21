@@ -12,6 +12,13 @@ const activeContainers: ReactRenderContainer[] = [];
 //   });
 // };
 
+/**
+ * Renders a React element to the DOM and returns a render container
+ * wrapping that element.
+ *
+ * @param element React element to render
+ * @param options Render options
+ */
 export const render = (element: JSX.Element, options = {}): ReactRenderContainer => {
   const container = new ReactRenderContainer(element, options);
 
@@ -21,6 +28,9 @@ export const render = (element: JSX.Element, options = {}): ReactRenderContainer
   return container;
 };
 
+/**
+ * Unmounts all remaining render containers from the DOM.
+ */
 export const cleanup = () => {
   while (activeContainers.length) {
     const container = activeContainers.pop();

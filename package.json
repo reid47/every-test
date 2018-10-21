@@ -31,7 +31,8 @@
       "test"
     ],
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.ts",
+      "src/**/*.tsx"
     ],
     "coverageReporters": [
       "html"

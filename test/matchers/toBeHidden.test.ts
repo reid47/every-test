@@ -27,7 +27,7 @@ describe('toBeHidden', () => {
     const el = document.createElement('div');
     const text = document.createTextNode('hello');
     el.appendChild(text);
-    el.style.width = 0;
+    el.style.width = '0px';
 
     const result = toBeHidden(el);
     expect(result.pass).toBeTruthy();
@@ -38,7 +38,7 @@ describe('toBeHidden', () => {
     const el = document.createElement('div');
     const text = document.createTextNode('hello');
     el.appendChild(text);
-    el.style.height = 0;
+    el.style.height = '0px';
 
     const result = toBeHidden(el);
     expect(result.pass).toBeTruthy();

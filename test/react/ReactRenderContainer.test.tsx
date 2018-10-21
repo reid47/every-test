@@ -1,7 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { ReactRenderContainer } from '../../src/react/ReactRenderContainer';
 
-class TestComponent extends React.Component {
+interface TestComponentProps {
+  title: string;
+  text: string;
+}
+
+class TestComponent extends React.Component<TestComponentProps> {
   render() {
     return (
       <div id="test-component">
@@ -12,7 +17,7 @@ class TestComponent extends React.Component {
   }
 }
 
-function FunctionalComponent(props) {
+function FunctionalComponent(props: TestComponentProps) {
   return (
     <div id="func-component">
       <span>{props.title}</span>
@@ -28,17 +33,17 @@ describe('ReactRenderContainer', () => {
     const node = container.domNode;
 
     container.mount();
-    expect(node.querySelector('span').textContent).toBe('fixed');
-    expect(node.querySelector('button').textContent).toBe('one');
+    expect((node.querySelector('span') || ({} as any)).textContent).toBe('fixed');
+    expect((node.querySelector('button') || ({} as any)).textContent).toBe('one');
 
     container.setProps({ text: 'two' });
-    expect(node.querySelector('span').textContent).toBe('fixed');
-    expect(node.querySelector('button').textContent).toBe('two');
+    expect((node.querySelector('span') || ({} as any)).textContent).toBe('fixed');
+    expect((node.querySelector('button') || ({} as any)).textContent).toBe('two');
 
     container.setProps();
     container.setProps({});
-    expect(node.querySelector('span').textContent).toBe('fixed');
-    expect(node.querySelector('button').textContent).toBe('two');
+    expect((node.querySelector('span') || ({} as any)).textContent).toBe('fixed');
+    expect((node.querySelector('button') || ({} as any)).textContent).toBe('two');
   });
 
   test('mount/unmount of class component', () => {
@@ -62,17 +67,17 @@ describe('ReactRenderContainer', () => {
     const node = container.domNode;
 
     container.mount();
-    expect(node.querySelector('span').textContent).toBe('fixed');
-    expect(node.querySelector('button').textContent).toBe('one');
+    expect((node.querySelector('span') || ({} as any)).textContent).toBe('fixed');
+    expect((node.querySelector('button') || ({} as any)).textContent).toBe('one');
 
     container.setProps({ text: 'two' });
-    expect(node.querySelector('span').textContent).toBe('fixed');
-    expect(node.querySelector('button').textContent).toBe('two');
+    expect((node.querySelector('span') || ({} as any)).textContent).toBe('fixed');
+    expect((node.querySelector('button') || ({} as any)).textContent).toBe('two');
 
     container.setProps();
     container.setProps({});
-    expect(node.querySelector('span').textContent).toBe('fixed');
-    expect(node.querySelector('button').textContent).toBe('two');
+    expect((node.querySelector('span') || ({} as any)).textContent).toBe('fixed');
+    expect((node.querySelector('button') || ({} as any)).textContent).toBe('two');
   });
 
   test('mount/unmount of functional component', () => {

@@ -1,11 +1,8 @@
 import * as baseMatchers from '../../src/matchers';
 import { matchers } from '../../src/jasmine';
+import '../../src/jasmine/add-matchers';
 
 describe('Jasmine matchers', () => {
-  beforeAll(() => {
-    jasmine.addMatchers(matchers);
-  });
-
   test('formats matchers for Jasmine', () => {
     Object.keys(baseMatchers).forEach(matcherName => {
       const matcherFactory = matchers[matcherName];

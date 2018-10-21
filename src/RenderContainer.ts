@@ -1,4 +1,4 @@
-import sizzle from 'sizzle';
+import * as sizzle from 'sizzle';
 import { formatDomNode } from './helpers';
 import { dispatchChange } from './events';
 
@@ -14,47 +14,57 @@ function throwContainerError(methodName, message) {
 }
 
 export class RenderContainer {
-  constructor(options) {
-    this.options = options || {};
+  options: object;
+  domNode: HTMLElement;
+  mounted: boolean;
+
+  constructor(options = {}) {
+    this.options = options;
     this.domNode = document.createElement('div');
     this.domNode.setAttribute('data-test-container', 'true');
     this.mounted = false;
   }
 
-  all(selector) {
+  all(selector: string): Element[] {
     return sizzle(selector, this.domNode);
   }
 
-  blurOn(selector) {
-    return this.get(selector, 'blurOn').blur();
+  blurOn(selector: string): void {
+    const element = this.get(selector, 'blurOn');
+    if (!(element instanceof HTMLElement)) return;
+    element.blur();
   }
 
-  changeValueOf(selector, newValue) {
+  changeValueOf(selector: string, newValue: any): void {
     const element = this.get(selector, 'changeValueOf');
     dispatchChange(element, newValue);
   }
 
-  clickOn(selector) {
-    return this.get(selector, 'clickOn').click();
+  clickOn(selector: string): void {
+    const element = this.get(selector, 'clickOn');
+    if (!(element instanceof HTMLElement)) return;
+    element.click();
   }
 
-  count(selector) {
+  count(selector: string): number {
     return this.all(selector).length;
   }
 
-  debug(printOptions) {
+  debug(printOptions: object = {}): void {
     console.log(this.toString(printOptions));
   }
 
-  find(selector) {
+  find(selector: string): Element | null {
     return this.all(selector)[0] || null;
   }
 
-  focusOn(selector) {
-    return this.get(selector, 'focusOn').focus();
+  focusOn(selector: string): void {
+    const element = this.get(selector, 'focusOn');
+    if (!(element instanceof HTMLElement)) return;
+    return element.focus();
   }
 
-  get(selector, methodName = 'get') {
+  get(selector: string, methodName: string = 'get'): Element {
     const nodes = this.all(selector);
 
     if (nodes.length !== 1) {
@@ -68,16 +78,16 @@ export class RenderContainer {
     return nodes[0];
   }
 
-  mount() {
+  mount(): void {
     document.body.appendChild(this.domNode);
     this.mounted = true;
   }
 
-  toString(printOptions) {
+  toString(printOptions = {}): string {
     return formatDomNode(this.domNode.firstChild, printOptions);
   }
 
-  unmount() {
+  unmount(): void {
     if (!this.mounted) return;
     document.body.removeChild(this.domNode);
     this.mounted = false;

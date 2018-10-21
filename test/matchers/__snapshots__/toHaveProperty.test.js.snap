@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`toHaveProperty failing 1`] = `"Expected element to have property \\"something\\" with value 47, but actual value was 48."`;
-
-exports[`toHaveProperty failing 2`] = `"Expected element to have property \\"notPresent\\"."`;
-
-exports[`toHaveProperty passing 1`] = `"Expected element not to have property \\"something\\" with value 47."`;

@@ -1,11 +1,8 @@
 import * as baseMatchers from '../../src/matchers';
-import { matchers } from '../../src/jest';
+import { matchers } from '../../src/jest/index';
+import '../../src/jest/add-matchers';
 
 describe('Jest matchers', () => {
-  beforeAll(() => {
-    expect.extend(matchers);
-  });
-
   test('formats matchers for Jest', () => {
     Object.keys(baseMatchers).forEach(matcherName => {
       const matcher = matchers[matcherName];

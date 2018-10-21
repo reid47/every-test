@@ -7,7 +7,6 @@ export { default as toContainText } from './toContainText';
 export { default as toExist } from './toExist';
 export { default as toHaveAttribute } from './toHaveAttribute';
 export { default as toHaveClass } from './toHaveClass';
-export { default as toHaveProperty } from './toHaveProperty';
 export { default as toHaveTagName } from './toHaveTagName';
 export { default as toHaveText } from './toHaveText';
 export { default as toHaveValue } from './toHaveValue';

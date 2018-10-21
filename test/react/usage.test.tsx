@@ -1,9 +1,13 @@
-import React from 'react';
-import { matchers } from '../../src/jest/index';
+import * as React from 'react';
+import '../../src/jest/add-matchers';
 import { render, cleanup } from '../../src/react';
 
+interface TestComponentProps {
+  title: string;
+  subtitle: string;
+}
+
 describe('React usage', () => {
-  beforeAll(() => expect.extend(matchers));
   afterEach(cleanup);
 
   test('rendering a simple button', () => {
@@ -85,7 +89,7 @@ describe('React usage', () => {
   });
 
   test('rendering a class component', () => {
-    class Simple extends React.Component {
+    class Simple extends React.Component<TestComponentProps> {
       render() {
         return (
           <div>

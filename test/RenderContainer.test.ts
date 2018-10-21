@@ -47,10 +47,13 @@ describe('RenderContainer', () => {
     expect(document.getElementById('test')).toBeFalsy();
 
     container.mount();
+
     expect(container.mounted).toBeTruthy();
     expect(document.getElementById('test')).toBeInstanceOf(HTMLElement);
-    expect(document.getElementById('test').parentNode.tagName).toBe('DIV');
-    expect(document.getElementById('test').parentNode.parentNode).toBe(document.body);
+
+    const parent = (document.getElementById('test') as HTMLElement).parentNode as HTMLElement;
+    expect(parent.tagName).toBe('DIV');
+    expect(parent.parentNode).toBe(document.body);
 
     container.unmount();
     expect(container.mounted).toBeFalsy();
@@ -117,7 +120,8 @@ describe('RenderContainer', () => {
 
     expect(container.find('#test')).toBeInstanceOf(HTMLElement);
     expect(container.find('something-else')).toBeNull();
-    expect(container.find('button').id).toBe('btn1');
+    const btn = container.find('button');
+    expect(btn && btn.id).toBe('btn1');
   });
 
   test('all', () => {

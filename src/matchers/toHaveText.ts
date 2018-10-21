@@ -1,5 +1,13 @@
 import { formatValue } from './common';
 
+// declare global {
+//   namespace jest {
+//     interface Matchers<R> {
+//       toHaveText: (expectedText: string) => any;
+//     }
+//   }
+// }
+
 export default function toHaveText(received, expectedText) {
   const actualText = received.textContent;
   const pass = actualText === expectedText;

@@ -1,6 +1,6 @@
 import { ReactRenderContainer } from './ReactRenderContainer';
 
-const activeContainers = [];
+const activeContainers: ReactRenderContainer[] = [];
 
 // const cloneElementWithStubs = (element, shallowTypes) => {
 //   if (shallowTypes.has(element.type)) return null;
@@ -12,7 +12,7 @@ const activeContainers = [];
 //   });
 // };
 
-export const render = (element, options = {}) => {
+export const render = (element: JSX.Element, options = {}): ReactRenderContainer => {
   const container = new ReactRenderContainer(element, options);
 
   activeContainers.push(container);
@@ -24,6 +24,6 @@ export const render = (element, options = {}) => {
 export const cleanup = () => {
   while (activeContainers.length) {
     const container = activeContainers.pop();
-    container.unmount();
+    container && container.unmount();
   }
 };

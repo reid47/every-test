@@ -2,8 +2,8 @@ export default function toBeHidden(received) {
   const hiddenProp = !!received.hidden;
   const { visibility, width, height } = getComputedStyle(received);
   const computedVisibility = visibility === 'hidden';
-  const zeroWidth = width <= 0;
-  const zeroHeight = height <= 0;
+  const zeroWidth = width ? parseInt(width) <= 0 : true;
+  const zeroHeight = height ? parseInt(height) <= 0 : true;
 
   const pass = hiddenProp || computedVisibility || zeroWidth || zeroHeight;
 

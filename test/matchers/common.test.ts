@@ -6,7 +6,7 @@ test('formatValue', () => {
   expect(formatValue(47)).toBe('47');
   expect(formatValue('wow')).toBe('"wow"');
   expect(formatValue(document.createElement('div'))).toBe('<div></div>');
-  const circular = { a: 1 };
+  const circular = { a: 1, b: null as any };
   circular.b = circular;
   expect(formatValue(circular)).toBe('[object Object]');
 });

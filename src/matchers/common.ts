@@ -1,4 +1,4 @@
-export const formatValue = received => {
+export const formatValue = (received: any): string => {
   if (received == null) return String(received);
   if (received instanceof HTMLElement) return received.outerHTML;
 

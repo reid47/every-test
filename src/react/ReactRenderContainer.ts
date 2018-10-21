@@ -9,7 +9,9 @@ const findPropsOfType = (element, type, props) => {
 };
 
 export class ReactRenderContainer extends RenderContainer {
-  constructor(element, options) {
+  element: JSX.Element;
+
+  constructor(element, options = {}) {
     super(options);
     this.element = element;
   }
@@ -36,8 +38,8 @@ export class ReactRenderContainer extends RenderContainer {
     return allProps[0];
   }
 
-  setProps(newProps) {
-    this.element = cloneElement(this.element, newProps || {});
+  setProps(newProps = {}) {
+    this.element = cloneElement(this.element, newProps);
     render(this.element, this.domNode);
   }
 

@@ -1,5 +1,4 @@
 import { ReactRenderContainer } from './ReactRenderContainer';
-import { documentNotAvailable } from '../errors';
 
 const activeContainers = [];
 
@@ -14,11 +13,8 @@ const activeContainers = [];
 // };
 
 export const render = (element, options = {}) => {
-  if (typeof document !== 'object' || typeof document.createElement !== 'function') {
-    throw documentNotAvailable();
-  }
-
   const container = new ReactRenderContainer(element, options);
+
   activeContainers.push(container);
   container.mount();
 

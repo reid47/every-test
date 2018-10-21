@@ -1,11 +1,11 @@
 import * as baseMatchers from '../matchers';
-import { formatReceived } from '../matchers/common';
+import { formatValue } from '../matchers/common';
 
 function adaptMatcherResult({ matcherName, pass, message, received }) {
   const fullMatcherName = `${pass ? '.not' : ''}.${matcherName}`;
 
   const messageString = [
-    `${this.utils.matcherHint(fullMatcherName, formatReceived(received))}`,
+    `${this.utils.matcherHint(fullMatcherName, formatValue(received))}`,
     '',
     message
   ].join('\n');

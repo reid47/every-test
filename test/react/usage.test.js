@@ -22,7 +22,7 @@ describe('React usage', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
-  test('rendering a text input with label', () => {
+  test('rendering a text input', () => {
     const onChange = jest.fn();
 
     const wrapper = render(
@@ -41,6 +41,27 @@ describe('React usage', () => {
     expect(wrapper.get('input')).toBeFocused();
     wrapper.blurOn('input');
     expect(wrapper.get('input')).not.toBeFocused();
+  });
+
+  test('rendering a textarea', () => {
+    const onChange = jest.fn();
+
+    const wrapper = render(
+      <div>
+        <textarea onChange={onChange} />
+      </div>
+    );
+
+    expect(wrapper.get('textarea')).toHaveValue('');
+    wrapper.changeValueOf('textarea', 'wow');
+    expect(wrapper.get('textarea')).toHaveValue('wow');
+    expect(onChange).toHaveBeenCalled();
+
+    expect(wrapper.get('textarea')).not.toBeFocused();
+    wrapper.focusOn('textarea');
+    expect(wrapper.get('textarea')).toBeFocused();
+    wrapper.blurOn('textarea');
+    expect(wrapper.get('textarea')).not.toBeFocused();
   });
 
   test('rendering a functional component', () => {

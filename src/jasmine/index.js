@@ -1,9 +1,9 @@
 import * as baseMatchers from '../matchers';
-import { formatReceived } from '../matchers/common';
+import { formatValue } from '../matchers/common';
 
 export const adaptMatcherResult = ({ matcherName, pass, message: msg, received }) => {
   const formatted = [
-    `expect(${formatReceived(received)})${pass ? '.not' : ''}.${matcherName}(...)`,
+    `expect(${formatValue(received)})${pass ? '.not' : ''}.${matcherName}(...)`,
     ' ',
     msg
   ].join('\n');

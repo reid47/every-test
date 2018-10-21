@@ -1,10 +1,10 @@
-export const formatReceived = received => {
-  if (received === undefined) return 'undefined';
-  if (received === null) return 'null';
+export const formatValue = received => {
+  if (received == null) return String(received);
   if (received instanceof HTMLElement) return received.outerHTML;
-  return JSON.stringify(received);
-};
 
-export const formatValue = value => {
-  return JSON.stringify(value, null, 2);
+  try {
+    return JSON.stringify(received);
+  } catch {
+    return received.toString();
+  }
 };

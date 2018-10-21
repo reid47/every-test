@@ -25,14 +25,6 @@ export class RenderContainer {
     return sizzle(selector, this.domNode);
   }
 
-  allByText(toMatch) {
-    return this.all('*').filter(node => {
-      const text = node.textContent;
-      if (typeof toMatch === 'string') return text === toMatch;
-      if (toMatch instanceof RegExp) return toMatch.test(text);
-    });
-  }
-
   blurOn(selector) {
     return this.get(selector, 'blurOn').blur();
   }
@@ -50,20 +42,12 @@ export class RenderContainer {
     return this.all(selector).length;
   }
 
-  countByText(selector) {
-    return this.allByText(selector).length;
-  }
-
   debug(printOptions) {
     console.log(this.toString(printOptions));
   }
 
   find(selector) {
     return this.all(selector)[0] || null;
-  }
-
-  findByText(toMatch) {
-    return this.allByText(toMatch)[0] || null;
   }
 
   focusOn(selector) {
@@ -77,20 +61,6 @@ export class RenderContainer {
       throwContainerError.call(
         this,
         methodName,
-        `Expected to find exactly 1 element matching '${selector}', but found ${nodes.length}.`
-      );
-    }
-
-    return nodes[0];
-  }
-
-  getByText(toMatch) {
-    const nodes = this.allByText(toMatch);
-
-    if (nodes.length !== 1) {
-      throwContainerError.call(
-        this,
-        'getByText',
         `Expected to find exactly 1 element matching '${selector}', but found ${nodes.length}.`
       );
     }

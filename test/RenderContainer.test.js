@@ -11,6 +11,29 @@ describe('RenderContainer', () => {
     expect(containerWithOptions.options).toEqual({ a: 'b' });
   });
 
+  test('debug', () => {
+    const consoleLog = console.log;
+    console.log = jest.fn();
+
+    const container = new RenderContainer();
+    container.domNode.innerHTML = '<div id="test"><button id="btn1"></button></div>';
+    container.debug();
+
+    expect(console.log).toHaveBeenCalledWith(
+      `
+<div
+  id="test"
+>
+  <button
+    id="btn1"
+  />
+</div>
+    `.trim()
+    );
+
+    console.log = consoleLog;
+  });
+
   test('mount/unmount', () => {
     const container = new RenderContainer();
     container.domNode.innerHTML = `

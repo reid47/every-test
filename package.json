@@ -1,7 +1,7 @@
 {
-  "name": "testudo",
+  "name": "every-test",
   "version": "0.0.1",
-  "description": "Simple, powerful, flexible React testing library",
+  "description": "Super-simple DOM testing library",
   "main": "react.js",
   "author": "Reid Mitchell",
   "license": "MIT",

@@ -1,6 +1,6 @@
 import { formatValue } from './common';
 
-export default function toHaveAttr(received, attribute, value) {
+export default function toHaveAttribute(received, attribute, value) {
   if (arguments.length < 3) {
     const pass = !!received.getAttribute(attribute);
     const message = pass

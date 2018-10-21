@@ -22,7 +22,7 @@ function FunctionalComponent(props) {
 }
 
 describe('ReactRenderContainer', () => {
-  test('mount/update of class component', () => {
+  test('mount/setProps of class component', () => {
     const element = <TestComponent title="fixed" text="one" />;
     const container = new ReactRenderContainer(element);
     const node = container.domNode;
@@ -31,12 +31,12 @@ describe('ReactRenderContainer', () => {
     expect(node.querySelector('span').textContent).toBe('fixed');
     expect(node.querySelector('button').textContent).toBe('one');
 
-    container.update({ text: 'two' });
+    container.setProps({ text: 'two' });
     expect(node.querySelector('span').textContent).toBe('fixed');
     expect(node.querySelector('button').textContent).toBe('two');
 
-    container.update();
-    container.update({});
+    container.setProps();
+    container.setProps({});
     expect(node.querySelector('span').textContent).toBe('fixed');
     expect(node.querySelector('button').textContent).toBe('two');
   });
@@ -56,7 +56,7 @@ describe('ReactRenderContainer', () => {
     expect(node.querySelector('#test-component')).toBeFalsy();
   });
 
-  test('mount/update of functional component', () => {
+  test('mount/setProps of functional component', () => {
     const element = <FunctionalComponent title="fixed" text="one" />;
     const container = new ReactRenderContainer(element);
     const node = container.domNode;
@@ -65,12 +65,12 @@ describe('ReactRenderContainer', () => {
     expect(node.querySelector('span').textContent).toBe('fixed');
     expect(node.querySelector('button').textContent).toBe('one');
 
-    container.update({ text: 'two' });
+    container.setProps({ text: 'two' });
     expect(node.querySelector('span').textContent).toBe('fixed');
     expect(node.querySelector('button').textContent).toBe('two');
 
-    container.update();
-    container.update({});
+    container.setProps();
+    container.setProps({});
     expect(node.querySelector('span').textContent).toBe('fixed');
     expect(node.querySelector('button').textContent).toBe('two');
   });
@@ -90,7 +90,7 @@ describe('ReactRenderContainer', () => {
     expect(node.querySelector('#func-component')).toBeFalsy();
   });
 
-  test('getPropsOf', () => {
+  test('propsOf', () => {
     const container = new ReactRenderContainer(
       (
         <div>
@@ -99,11 +99,11 @@ describe('ReactRenderContainer', () => {
       )
     );
 
-    expect(container.getPropsOf(TestComponent)).toEqual({
+    expect(container.propsOf(TestComponent)).toEqual({
       title: 'fixed',
       text: 'one'
     });
-    expect(() => container.getPropsOf(FunctionalComponent)).toThrow();
+    expect(() => container.propsOf(FunctionalComponent)).toThrow();
 
     const container2 = new ReactRenderContainer(
       (
@@ -114,7 +114,7 @@ describe('ReactRenderContainer', () => {
       )
     );
 
-    expect(() => container2.getPropsOf(FunctionalComponent)).toThrow();
+    expect(() => container2.propsOf(FunctionalComponent)).toThrow();
   });
 
   test('allPropsOf', () => {

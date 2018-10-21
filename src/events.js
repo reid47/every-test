@@ -1,37 +1,26 @@
-export default function createEventHelpers({ findOnly }) {
-  return {
-    blurOn: selector => {
-      findOnly(selector, 'blurOn').blur();
-    },
+const inputProto = HTMLInputElement.prototype;
+const textareaProto = HTMLTextAreaElement.prototype;
+const inputValueSetter = Object.getOwnPropertyDescriptor(inputProto, 'value').set;
+const textareaValueSetter = Object.getOwnPropertyDescriptor(textareaProto, 'value').set;
 
-    changeValueOf: (selector, newValue, options = {}) => {
-      const node = findOnly(selector, 'changeValue');
-      node.value = newValue;
-      node.dispatchEvent(
-        new Event('input', {
-          bubbles: true,
-          cancelable: true,
-          ...options
-        })
-      );
-    },
+export const dispatch = (element, event) => {
+  element.dispatchEvent(event);
+};
 
-    clickOn: selector => {
-      findOnly(selector, 'clickOn').click();
-    },
+export const dispatchChange = (element, newValue, options = {}) => {
+  const event = new Event('input', { bubbles: true, ...options });
 
-    doubleClickOn: (selector, options = {}) => {
-      findOnly(selector, 'doubleClickOn').dispatchEvent(
-        new MouseEvent({
-          bubbles: true,
-          cancelable: true,
-          ...options
-        })
-      );
-    },
-
-    focusOn: selector => {
-      findOnly(selector, 'focusOn').focus();
+  switch (element.tagName.toLowerCase()) {
+    case 'input': {
+      inputValueSetter.call(element, newValue);
+      break;
     }
-  };
-}
+
+    case 'textarea': {
+      textareaValueSetter.call(element, newValue);
+      break;
+    }
+  }
+
+  element.dispatchEvent(event);
+};

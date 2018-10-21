@@ -1,14 +1,26 @@
 import * as baseMatchers from '../matchers';
-import { adaptMatcherResult } from '../matchers/common';
+import { formatReceived } from '../matchers/common';
+
+function adaptMatcherResult({ matcherName, pass, message, received }) {
+  const fullMatcherName = `${pass ? '.not' : ''}.${matcherName}`;
+
+  const messageString = [
+    `${this.utils.matcherHint(fullMatcherName, formatReceived(received))}`,
+    '',
+    message
+  ].join('\n');
+
+  return { pass, message: () => messageString };
+}
 
 export const matchers = Object.keys(baseMatchers).reduce((acc, matcherName) => {
   const matcherFunction = baseMatchers[matcherName];
 
   return {
     ...acc,
-    [matcherName]: (received, ...args) => {
+    [matcherName](received, ...args) {
       const { pass, message } = matcherFunction(received, ...args);
-      return adaptMatcherResult({ matcherName, received, pass, message });
+      return adaptMatcherResult.call(this, { matcherName, received, pass, message });
     }
   };
 }, {});

@@ -12,7 +12,6 @@ export class ReactRenderContainer extends RenderContainer {
   constructor(element, options) {
     super(options);
     this.element = element;
-    this.shallowTypes = new Set(this.options.shallowTypes || []);
   }
 
   mount() {
@@ -20,7 +19,7 @@ export class ReactRenderContainer extends RenderContainer {
     render(this.element, this.domNode);
   }
 
-  update(newProps) {
+  setProps(newProps) {
     this.element = cloneElement(this.element, newProps || {});
     render(this.element, this.domNode);
   }
@@ -35,7 +34,7 @@ export class ReactRenderContainer extends RenderContainer {
     return this.allPropsOf(componentType).length;
   }
 
-  getPropsOf(componentType) {
+  propsOf(componentType) {
     const allProps = this.allPropsOf(componentType);
     if (!allProps.length) throw noRendersFound(componentType);
     if (allProps.length > 1) throw multipleRendersFound(componentType);

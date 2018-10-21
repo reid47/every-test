@@ -5,14 +5,14 @@ describe('Jest matchers', () => {
     expect.extend(matchers);
   });
 
-  test('toHaveAttr', () => {
+  test('toHaveAttribute', () => {
     const div = document.createElement('div');
     div.setAttribute('id', 'hello');
 
-    expect(div).toHaveAttr('id', 'hello');
-    expect(div).not.toHaveAttr('id', 'wow');
-    expect(() => expect(div).toHaveAttr('id', 'wow')).toThrowErrorMatchingSnapshot();
-    expect(() => expect(div).not.toHaveAttr('id', 'hello')).toThrowErrorMatchingSnapshot();
+    expect(div).toHaveAttribute('id', 'hello');
+    expect(div).not.toHaveAttribute('id', 'wow');
+    expect(() => expect(div).toHaveAttribute('id', 'wow')).toThrowErrorMatchingSnapshot();
+    expect(() => expect(div).not.toHaveAttribute('id', 'hello')).toThrowErrorMatchingSnapshot();
   });
 
   test('toHaveValue', () => {

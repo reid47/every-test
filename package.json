@@ -2,7 +2,7 @@
   "name": "testudo",
   "version": "0.0.1",
   "description": "Simple, powerful, flexible React testing library",
-  "main": "dist/index.js",
+  "main": "react.js",
   "author": "Reid Mitchell",
   "license": "MIT",
   "scripts": {
@@ -28,7 +28,7 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },

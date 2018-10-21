@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Jest matchers toHaveAttr 1`] = `
-"expect(<div id=\\"hello\\"></div>).toHaveAttr(...)
- 
+exports[`Jest matchers toHaveAttribute 1`] = `
+"[2mexpect([22m[31m<div id=\\"hello\\"></div>[39m[2m).toHaveAttribute([22m[32mexpected[39m[2m)[22m
+
 Expected element to have attribute \\"id\\" with value \\"wow\\", but actual value was \\"hello\\"."
 `;
 
-exports[`Jest matchers toHaveAttr 2`] = `
-"expect(<div id=\\"hello\\"></div>).not.toHaveAttr(...)
- 
+exports[`Jest matchers toHaveAttribute 2`] = `
+"[2mexpect([22m[31m<div id=\\"hello\\"></div>[39m[2m).not.toHaveAttribute([22m[32mexpected[39m[2m)[22m
+
 Expected element not to have attribute \\"id\\" with value \\"hello\\"."
 `;
 
 exports[`Jest matchers toHaveValue 1`] = `
-"expect(<input>).toHaveValue(...)
- 
+"[2mexpect([22m[31m<input>[39m[2m).toHaveValue([22m[32mexpected[39m[2m)[22m
+
 Expected element to have value 47, but actual value was \\"47\\"."
 `;
 
 exports[`Jest matchers toHaveValue 2`] = `
-"expect(<input>).not.toHaveValue(...)
- 
+"[2mexpect([22m[31m<input>[39m[2m).not.toHaveValue([22m[32mexpected[39m[2m)[22m
+
 Expected element not to have value \\"47\\"."
 `;

@@ -1,11 +1,13 @@
 export { default as toBeChecked } from './toBeChecked';
 export { default as toBeDisabled } from './toBeDisabled';
+export { default as toBeEmpty } from './toBeEmpty';
 export { default as toBeFocused } from './toBeFocused';
 export { default as toBeHidden } from './toBeHidden';
 export { default as toContainText } from './toContainText';
 export { default as toExist } from './toExist';
-export { default as toHaveAttr } from './toHaveAttr';
+export { default as toHaveAttribute } from './toHaveAttribute';
 export { default as toHaveClass } from './toHaveClass';
-export { default as toHaveProp } from './toHaveProp';
+export { default as toHaveProperty } from './toHaveProperty';
+export { default as toHaveTagName } from './toHaveTagName';
 export { default as toHaveText } from './toHaveText';
 export { default as toHaveValue } from './toHaveValue';

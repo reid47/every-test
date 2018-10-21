@@ -1,6 +1,6 @@
 import { formatValue } from './common';
 
-export default function toHaveProp(received, property, value) {
+export default function toHaveProperty(received, property, value) {
   if (arguments.length < 3) {
     const pass = !!received[property];
     const message = pass

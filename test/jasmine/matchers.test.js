@@ -5,14 +5,14 @@ describe('Jasmine matchers', () => {
     jasmine.addMatchers(matchers);
   });
 
-  test('toHaveAttr', () => {
+  test('toHaveAttribute', () => {
     const div = document.createElement('div');
     div.setAttribute('id', 'hello');
 
-    expect(() => expect(div).toHaveAttr('id', 'hello')).not.toThrow();
-    expect(() => expect(div).not.toHaveAttr('id', 'wow')).not.toThrow();
-    expect(() => expect(div).toHaveAttr('id', 'wow')).toThrowErrorMatchingSnapshot();
-    expect(() => expect(div).not.toHaveAttr('id', 'hello')).toThrowErrorMatchingSnapshot();
+    expect(() => expect(div).toHaveAttribute('id', 'hello')).not.toThrow();
+    expect(() => expect(div).not.toHaveAttribute('id', 'wow')).not.toThrow();
+    expect(() => expect(div).toHaveAttribute('id', 'wow')).toThrowErrorMatchingSnapshot();
+    expect(() => expect(div).not.toHaveAttribute('id', 'hello')).toThrowErrorMatchingSnapshot();
   });
 
   test('toHaveValue', () => {

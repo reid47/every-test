@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Jasmine matchers toHaveAttr 1`] = `
-"expect(<div id=\\"hello\\"></div>).toHaveAttr(...)
+exports[`Jasmine matchers toHaveAttribute 1`] = `
+"expect(<div id=\\"hello\\"></div>).toHaveAttribute(...)
  
 Expected element to have attribute \\"id\\" with value \\"wow\\", but actual value was \\"hello\\"."
 `;
 
-exports[`Jasmine matchers toHaveAttr 2`] = `
-"expect(<div id=\\"hello\\"></div>).not.toHaveAttr(...)
+exports[`Jasmine matchers toHaveAttribute 2`] = `
+"expect(<div id=\\"hello\\"></div>).not.toHaveAttribute(...)
  
 Expected element not to have attribute \\"id\\" with value \\"hello\\"."
 `;

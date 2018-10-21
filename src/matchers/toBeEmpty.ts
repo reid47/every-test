@@ -1,4 +1,4 @@
-export default function toBeEmpty(received) {
+export function toBeEmpty(received) {
   const pass = received.innerHTML === '';
 
   const message = pass

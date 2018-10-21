@@ -1,4 +1,4 @@
-import toBeEmpty from '../../src/matchers/toBeEmpty';
+import { toBeEmpty } from '../../src/matchers/toBeEmpty';
 
 describe('toBeEmpty', () => {
   test('passing', () => {

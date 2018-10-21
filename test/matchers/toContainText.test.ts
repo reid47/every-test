@@ -1,4 +1,4 @@
-import toContainText from '../../src/matchers/toContainText';
+import { toContainText } from '../../src/matchers/toContainText';
 
 describe('toContainText', () => {
   test('passing (substring)', () => {

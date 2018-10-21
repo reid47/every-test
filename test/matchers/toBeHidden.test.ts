@@ -1,4 +1,4 @@
-import toBeHidden from '../../src/matchers/toBeHidden';
+import { toBeHidden } from '../../src/matchers/toBeHidden';
 
 describe('toBeHidden', () => {
   test('passing (hidden prop)', () => {

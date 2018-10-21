@@ -1,4 +1,4 @@
-import toHaveClass from '../../src/matchers/toHaveClass';
+import { toHaveClass } from '../../src/matchers/toHaveClass';
 
 describe('toHaveClass', () => {
   test('passing (single class)', () => {

@@ -1,4 +1,4 @@
-export default function toBeFocused(received) {
+export function toBeFocused(received) {
   const pass = document.activeElement === received;
 
   const message = pass

@@ -1,4 +1,4 @@
-import toBeChecked from '../../src/matchers/toBeChecked';
+import { toBeChecked } from '../../src/matchers/toBeChecked';
 
 describe('toBeChecked', () => {
   test('passing', () => {

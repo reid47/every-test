@@ -1,4 +1,4 @@
-import toHaveText from '../../src/matchers/toHaveText';
+import { toHaveText } from '../../src/matchers/toHaveText';
 
 describe('toHaveText', () => {
   test('passing', () => {

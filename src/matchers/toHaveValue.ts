@@ -1,6 +1,6 @@
 import { formatValue } from './common';
 
-export default function toHaveValue(received, expectedValue) {
+export function toHaveValue(received, expectedValue) {
   const actualValue = received.value;
   const pass = actualValue === expectedValue;
 

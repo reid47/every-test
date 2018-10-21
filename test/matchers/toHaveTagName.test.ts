@@ -1,4 +1,4 @@
-import toHaveTagName from '../../src/matchers/toHaveTagName';
+import { toHaveTagName } from '../../src/matchers/toHaveTagName';
 
 describe('toHaveTagName', () => {
   test('passing', () => {

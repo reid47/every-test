@@ -1,4 +1,4 @@
-import toExist from '../../src/matchers/toExist';
+import { toExist } from '../../src/matchers/toExist';
 
 describe('toExist', () => {
   test('passing', () => {

@@ -1,6 +1,6 @@
 import { formatValue } from './common';
 
-export default function toHaveTagName(received, expectedTagName) {
+export function toHaveTagName(received, expectedTagName) {
   const actualTagName = received.tagName.toLowerCase();
   const pass = actualTagName === expectedTagName.toLowerCase();
 

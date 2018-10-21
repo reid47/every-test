@@ -1,6 +1,6 @@
 import { formatValue } from './common';
 
-export default function toContainText(received, expectedText) {
+export function toContainText(received, expectedText) {
   const actualText = received.textContent;
 
   const pass =

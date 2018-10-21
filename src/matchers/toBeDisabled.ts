@@ -1,4 +1,4 @@
-export default function toBeDisabled(received) {
+export function toBeDisabled(received) {
   const pass = !!received.disabled;
 
   const message = pass

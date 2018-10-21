@@ -1,4 +1,4 @@
-import toBeDisabled from '../../src/matchers/toBeDisabled';
+import { toBeDisabled } from '../../src/matchers/toBeDisabled';
 
 describe('toBeDisabled', () => {
   test('passing', () => {

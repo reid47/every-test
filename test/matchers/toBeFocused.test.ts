@@ -1,4 +1,4 @@
-import toBeFocused from '../../src/matchers/toBeFocused';
+import { toBeFocused } from '../../src/matchers/toBeFocused';
 
 describe('toBeFocused', () => {
   test('passing', () => {

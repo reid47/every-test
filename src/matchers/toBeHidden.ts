@@ -1,4 +1,4 @@
-export default function toBeHidden(received) {
+export function toBeHidden(received) {
   const hiddenProp = !!received.hidden;
   const { visibility, width, height } = getComputedStyle(received);
   const computedVisibility = visibility === 'hidden';

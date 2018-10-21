@@ -1,6 +1,6 @@
 import { formatValue } from './common';
 
-export default function toExist(received) {
+export function toExist(received) {
   const isTruthy = !!received;
   const isHtmlElement = received instanceof HTMLElement;
   const isInDocument = isHtmlElement && document.body.contains(received);

@@ -1,4 +1,4 @@
-import toHaveAttribute from '../../src/matchers/toHaveAttribute';
+import { toHaveAttribute } from '../../src/matchers/toHaveAttribute';
 
 describe('toHaveAttribute', () => {
   test('passing', () => {

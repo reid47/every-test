@@ -1,4 +1,4 @@
-import toHaveValue from '../../src/matchers/toHaveValue';
+import { toHaveValue } from '../../src/matchers/toHaveValue';
 
 describe('toHaveValue', () => {
   test('passing', () => {

@@ -1,6 +1,6 @@
 const formatClasses = classes => classes.map(JSON.stringify).join(', ');
 
-export default function toHaveClass(received, ...classes) {
+export function toHaveClass(received, ...classes) {
   const isTruthy = !!received;
   const missingClasses = {};
 

@@ -2,7 +2,7 @@
   "name": "every-test",
   "version": "0.0.1",
   "description": "Super-simple DOM testing library",
-  "main": "react.js",
+  "main": "dom.js",
   "author": "Reid Mitchell",
   "license": "MIT",
   "scripts": {

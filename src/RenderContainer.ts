@@ -1,6 +1,6 @@
 import * as sizzle from 'sizzle';
 import { getNodeInContainer, formatDomNode } from './helpers';
-import { dispatchChange } from './events';
+import { createKeyboardEvent, dispatch, dispatchChange } from './events';
 
 /**
  * A container that represents a rendered DOM node.
@@ -85,6 +85,16 @@ export class RenderContainer {
   }
 
   /**
+   * Dispatches a given event on a DOM node.
+   *
+   * @param selector Selector for DOM node to dispatch event on
+   * @param event Event to dispatch
+   */
+  dispatchEventOn(selector: string, event: Event): void {
+    dispatch(getNodeInContainer.call(this, selector, 'dispatchOn'), event);
+  }
+
+  /**
    * Returns the first DOM node in container matching `selector`, or
    * `null` if no matches found.
    *
@@ -113,6 +123,45 @@ export class RenderContainer {
    */
   get(selector: string): Element {
     return getNodeInContainer.call(this, selector, 'get');
+  }
+
+  /**
+   * Triggers a `keydown` event on a DOM node.
+   *
+   * @param selector Selector for DOM node to trigger event on
+   * @param eventInit Event data to include on event object
+   */
+  keyDownOn(selector: string, eventInit: KeyboardEventInit = {}): void {
+    dispatch(
+      getNodeInContainer.call(this, selector, 'keyDownOn'),
+      createKeyboardEvent('keydown', eventInit)
+    );
+  }
+
+  /**
+   * Triggers a `keypress` event on a DOM node.
+   *
+   * @param selector Selector for DOM node to trigger event on
+   * @param eventInit Event data to include on event object
+   */
+  keyPressOn(selector: string, eventInit: KeyboardEventInit = {}): void {
+    dispatch(
+      getNodeInContainer.call(this, selector, 'keyPressOn'),
+      createKeyboardEvent('keypress', eventInit)
+    );
+  }
+
+  /**
+   * Triggers a `keyup` event on a DOM node.
+   *
+   * @param selector Selector for DOM node to trigger event on
+   * @param eventInit Event data to include on event object
+   */
+  keyUpOn(selector: string, eventInit: KeyboardEventInit = {}): void {
+    dispatch(
+      getNodeInContainer.call(this, selector, 'keyUpOn'),
+      createKeyboardEvent('keyup', eventInit)
+    );
   }
 
   /**

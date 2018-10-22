@@ -1,4 +1,12 @@
-export const dispatch = (element, event) => {
+export const createKeyboardEvent = (type: string, eventInit: KeyboardEventInit): KeyboardEvent => {
+  return new KeyboardEvent(type, {
+    bubbles: true,
+    cancelable: true,
+    ...eventInit
+  });
+};
+
+export const dispatch = (element: Element, event: Event): void => {
   element.dispatchEvent(event);
 };
 

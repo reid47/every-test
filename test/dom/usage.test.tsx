@@ -1,7 +1,66 @@
+import '../../src/jest/add-matchers';
 import { render, cleanup } from '../../src/dom';
 
 describe('Vanilla DOM usage', () => {
   afterEach(cleanup);
+
+  test('rendering a simple button', () => {
+    const onClick = jest.fn();
+
+    const btn = document.createElement('button');
+    btn.addEventListener('click', onClick);
+    btn.appendChild(document.createTextNode('click me'));
+    const wrapper = render(btn);
+
+    expect(wrapper.get('button')).toHaveText('click me');
+    expect(wrapper.get('button')).toContainText('click');
+    expect(wrapper.get('button')).toContainText(/click/);
+
+    expect(wrapper.get('button')).toHaveTagName('button');
+    expect(wrapper.get('button')).toHaveTagName('Button');
+    expect(wrapper.get('button')).toHaveTagName('BUTTON');
+
+    wrapper.clickOn('button');
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  test('rendering a text input', () => {
+    const onChange = jest.fn();
+
+    const input = document.createElement('input');
+    input.addEventListener('input', onChange);
+    const wrapper = render(input);
+
+    expect(wrapper.get('input')).toHaveValue('');
+    wrapper.changeValueOf('input', 'wow');
+    expect(wrapper.get('input')).toHaveValue('wow');
+    expect(onChange).toHaveBeenCalled();
+
+    expect(wrapper.get('input')).not.toBeFocused();
+    wrapper.focusOn('input');
+    expect(wrapper.get('input')).toBeFocused();
+    wrapper.blurOn('input');
+    expect(wrapper.get('input')).not.toBeFocused();
+  });
+
+  test('rendering a textarea', () => {
+    const onChange = jest.fn();
+
+    const textarea = document.createElement('textarea');
+    textarea.addEventListener('input', onChange);
+    const wrapper = render(textarea);
+
+    expect(wrapper.get('textarea')).toHaveValue('');
+    wrapper.changeValueOf('textarea', 'wow');
+    expect(wrapper.get('textarea')).toHaveValue('wow');
+    expect(onChange).toHaveBeenCalled();
+
+    expect(wrapper.get('textarea')).not.toBeFocused();
+    wrapper.focusOn('textarea');
+    expect(wrapper.get('textarea')).toBeFocused();
+    wrapper.blurOn('textarea');
+    expect(wrapper.get('textarea')).not.toBeFocused();
+  });
 
   test('keydown handling', () => {
     const onKeyDown = jest.fn();

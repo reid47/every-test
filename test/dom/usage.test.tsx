@@ -1,7 +1,7 @@
 import '../../src/jest/add-matchers';
 import { render, cleanup } from '../../src/dom';
 
-describe('Vanilla DOM usage', () => {
+describe('DOM usage (no frameworks)', () => {
   afterEach(cleanup);
 
   test('rendering a simple button', () => {
